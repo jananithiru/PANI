@@ -1,0 +1,23 @@
+/*
+ * bufferPool.h
+ *
+ *  Created on: 17-Sep-2011
+ *      Author: amrita
+ */
+
+#ifndef BUFFERPOOL_H_
+#define BUFFERPOOL_H_
+#include "../globals/globals.h"
+#include "bufferManager.h"
+
+class bufferPool {
+	long frameCount;
+	long bufferSize;
+public:
+	bufferPool(long memSize);
+	//bufferPool(int noOfDatabases);//TBD
+	virtual ~bufferPool();
+
+};
+
+#endif /* BUFFERPOOL_H_ */

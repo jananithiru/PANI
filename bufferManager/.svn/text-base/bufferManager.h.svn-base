@@ -1,0 +1,17 @@
+/*
+ * bufferManager.h
+ *
+ *  Created on: 17-Sep-2011
+ *      Author: amrita
+ */
+
+#ifndef BUFFERMANAGER_H_
+#define BUFFERMANAGER_H_
+
+class bufferManager {
+public:
+	bufferManager();
+	virtual ~bufferManager();
+};
+
+#endif /* BUFFERMANAGER_H_ */

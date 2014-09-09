@@ -1,0 +1,18 @@
+/*
+ * Utils.h
+ *
+ *  Created on: 24-Sep-2011
+ *      Author: amrita
+ */
+
+#ifndef UTILS_H_
+#define UTILS_H_
+#include "../globals/globals.h"
+class Utils {
+public:
+	Utils();
+	virtual ~Utils();
+	void myprintf(const char* Format, ... );
+};
+
+#endif /* UTILS_H_ */

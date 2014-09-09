@@ -1,0 +1,18 @@
+/*
+ * globals.h
+ *
+ *  Created on: 15-Sep-2011
+ *      Author: prat
+ */
+
+#ifndef GLOBALS_H_
+#define GLOBALS_H_
+
+#include "globalConstants.h"
+#include "globalDefinitions.h"
+#include "globalHeaders.h"
+#include "pageSize.h"
+#include "../Utils/Utils.h"
+//bufferManager *bufManager;
+
+#endif /* GLOBALS_H_ */

@@ -1,0 +1,22 @@
+/*
+ * bufferManagerTest.cpp
+ *
+ *  Created on: 18-Sep-2011
+ *      Author: amrita
+ */
+
+#include "bufferManagerTest.h"
+
+bufferManagerTest::bufferManagerTest() {
+	// TODO Auto-generated constructor stub
+
+}
+
+bufferManagerTest::~bufferManagerTest() {
+	// TODO Auto-generated destructor stub
+}
+int main()
+{
+	bufferPool b(85000);
+	return 0;
+}

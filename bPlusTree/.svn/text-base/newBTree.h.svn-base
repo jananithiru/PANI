@@ -1,0 +1,76 @@
+/*Sept 13th 2011
+ * Author: Janani
+ * 
+ * LEAF NODE STRUCT
+ _____________________________________\\_______________________________________
+ | _______________ _____________       \\   _______________ _______________   |
+ | |Key| RID ptr | |Key| RID ptr |	\\  |Key| RID ptr | |Key| RID ptr |   |	 
+ | |___|_________| |___|_________|	 \\ |___|_________| |___|_________|   |
+ |________________________________________\\ _________________________________|
+ 
+ where,
+ _______________
+ |Key| RID ptr |
+ |___|_________|		LUnit
+ 
+ * 
+ * 
+ * 
+  ----------------------------------------------------------------------------------------------
+ * 
+ *
+ * INTERNAL NODE STRUCT
+ ____________________\\______________________
+ | _______________ ___\\___________________  |
+ | ||Key||Key||Key||   \\  ||Key||Key||Key|| | 	
+ | ||___||___||___||____\\ ||___||___||___|| |  
+ |_______________________\\ _________________|
+  
+  where,
+  ______
+  |Key||
+  |___||		IUnit
+  
+ * 
+ * 
+ */
+//==============================================================================================================================
+// 													STRUCTURE DECLARATIONS
+//==============================================================================================================================
+
+
+struct LeafNode
+{
+	short priority;
+	long prevLNodePtr;
+	long nextLNodePtr;
+	long numOfKeys;
+	struct LUnit lunit[1]; // Implying you can have a variable number of such lunits within a LNode
+};
+
+struct LUnit
+{
+	struct RID rid;
+	char key[1];
+};
+
+struct InternalNode
+{
+	short priority;
+	long prevINodePtr;
+	long numOfKeys;
+	struct IUnit iunit[1];
+};
+
+struct IUnit
+{
+	long ptr;
+	char key[1];
+};
+
+struct RID
+{
+	struct int value;
+}
+	
+	

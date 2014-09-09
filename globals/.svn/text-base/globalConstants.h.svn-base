@@ -1,0 +1,35 @@
+/*
+ * globalConstants.h
+ *
+ *  Created on: 15-Sep-2011
+ *      Author: prat
+ */
+
+#ifndef GLOBALCONSTANTS_H_
+#define GLOBALCONSTANTS_H_
+
+#include "globalHeaders.h"
+#include "pageSize.h"
+
+#define INTEGER 0
+
+//known datatypes
+#define LONG_SIZE 8
+#define INT_SIZE 4
+#define SHORT_SIZE 2
+#define KB 1024
+#define MAX_VARCHAR 100
+//our datatypes
+#define FRAME_SIZE 8205 //8192+14-1=8205 where 14 is size of frameStruct
+#define PAGE_SIZE 8192
+#define TABLE_NAME 20
+#define DB_NAME 20
+#define MAX_NOS_DES ((PAGE_SIZE-sizeof(dpHeader))/sizeof(dirEntry))
+#define MAX_FREE_SPACE (PAGE_SIZE - (INT_SIZE + sizeof(dbModule::slotEntry)))
+
+#define SUCCESS 1
+#define FAILURE 0
+
+//debug flag
+#define DEBUG false
+#endif /* GLOBALCONSTANTS_H_ */

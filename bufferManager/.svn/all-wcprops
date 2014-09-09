@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/adbms/!svn/ver/18/trunk/bufferManager
+END
+bufferPool.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/adbms/!svn/ver/18/trunk/bufferManager/bufferPool.cpp
+END
+bufferManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/adbms/!svn/ver/14/trunk/bufferManager/bufferManager.cpp
+END
+bufferManagerTest.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/adbms/!svn/ver/18/trunk/bufferManager/bufferManagerTest.cpp
+END
+bufferPool.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/adbms/!svn/ver/18/trunk/bufferManager/bufferPool.h
+END
+bufferManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/adbms/!svn/ver/18/trunk/bufferManager/bufferManager.h
+END
+bufferManagerTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/adbms/!svn/ver/18/trunk/bufferManager/bufferManagerTest.h
+END

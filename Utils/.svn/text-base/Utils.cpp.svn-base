@@ -1,0 +1,55 @@
+/*
+ * Utils.cpp
+ *
+ *  Created on: 24-Sep-2011
+ *      Author: amrita
+ */
+
+#include "Utils.h"
+#include <stdarg.h>
+Utils::Utils() {
+	// TODO Auto-generated constructor stub
+
+}
+
+Utils::~Utils() {
+	// TODO Auto-generated destructor stub
+}
+
+void _trace( char* filename, int line, const char* format, ... ) {
+    va_list args;
+    fprintf( stderr, "[%s:%d] " );
+    va_start( args, format );
+    vfprintf( stderr, format, args );
+    va_end( args );
+    fprintf( stderr, "\n" );
+}
+
+void Utils::myprintf(const char* Format, ... ){
+	va_list Arguments;
+	      va_start(Arguments, Format);
+	      double FArg;
+	      int IArg;
+	      char CArg;
+	      for(int i = 0; Format[i] != '\0'; ++i )
+	      {
+	            if (Format[i] == 'f')
+	            {
+	                  FArg=va_arg(Arguments, double);
+	                  printf("Caught a float : %.3lf\n",FArg);
+	            }
+	            else if (Format[i] == 'i')
+	            {
+	                  IArg=va_arg(Arguments, int);
+	                  printf("Caught an integer : %d\n",IArg);
+	            }
+	            else if (Format[i] == 'c')
+	            {
+	            	CArg=va_arg(Arguments, char);
+	                  printf("Caught a character : %s\n",CArg);
+	            }
+
+	      }
+	      va_end(Arguments);
+
+}

@@ -1,0 +1,99 @@
+/*
+ * dbModule.h
+ *
+ *  Created on: 14-Sep-2011
+ *      Author: prat
+ */
+
+#ifndef DBMODULE_H_
+#define DBMODULE_H_
+
+class dbModule{
+
+	typedef nammaDBGlobal::rid rid;
+
+	typedef struct pageNumberPointer
+	{
+		long pagePtr;
+	}pagePointer;
+
+	typedef struct databaseHeader
+	{
+		pagePointer sysTablePage;
+		pagePointer sysColPage;
+		pagePointer sysIndexPage;
+	}dbHeader;
+
+	typedef struct directoryEntry {
+		pagePointer dePage;
+		int TFS;
+	}dirEntry;
+
+	typedef struct DPHeader {
+		pagePointer nextPage;
+		int CFS;
+	}dpHeader;
+
+	typedef struct directoryPage {
+		dpHeader dp_header;
+		dirEntry dirEntryList[MAX_NOS_DES];
+	}dirPage;
+
+	typedef struct slotDirectoryEntry {
+		int slotOffset;
+		int slotSize;
+	}slotEntry;
+
+	typedef struct slotDirectory {
+		slotEntry* slotList;
+		int slotNumber;
+	}slotDirectory;
+
+	typedef struct DatabasePage {
+		pagePointer dpPage;
+		unsigned char* pageData;
+		slotDirectory slotDir;
+	}dbPage;
+
+	typedef struct resultSet {
+	    struct rid;
+	    short ppos;
+	}resultSet;
+
+	Page* getPagePointer(pagePointer page);
+	Page* getNewPagePointer();
+	void setPagePointer(pagePointer page,Page* ptr);
+
+	Page* createDBPage(long dpPage);
+	Page* createDPPage();
+
+	void writePage(long pageNo,Page* page);
+	void readPage (long pageNo, Page &page);
+	void unPinPage(long pageNo);
+	void pinPage(long pageNo);
+
+public:
+
+	myBool createNewDB();
+	dbModule(int dpHeaderFile); //Done
+	int getTotalNumRecords(int pagePtr);
+	myBool insertRecord(int pagePtr,unsigned char *tuplePtr, int tupleLength, rid &insertRid);
+	myBool deleteRecord(int pagePtr,const rid &rid);
+	int updateRecord(int pagePtr,rid &rid,unsigned char *tuplePtr, int tupleLength);
+	myBool getRecord(long pagePtr,const rid &rid,unsigned char *(&tuplePtr)/*fill this*/, int &tupleLength/*fill this*/);
+	int linearScan(int file,vector<tuple> &resultset);
+
+	int createDpForTable();
+	myBool deletePagesFromDp(int pagePtr);
+	void NOTMain_dbModule();
+	int dbModule_verbose;
+
+};
+
+
+namespace dbModuleCoreUI{
+	int initDbCore();
+};
+
+
+#endif /* DBMODULE_H_ */

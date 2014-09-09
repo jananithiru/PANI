@@ -1,0 +1,17 @@
+/*
+ * bufferManager.cpp
+ *
+ *  Created on: 17-Sep-2011
+ *      Author: amrita
+ */
+
+#include "bufferManager.h"
+
+bufferManager::bufferManager() {
+	// TODO Auto-generated constructor stub
+
+}
+
+bufferManager::~bufferManager() {
+	// TODO Auto-generated destructor stub
+}

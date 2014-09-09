@@ -1,0 +1,12 @@
+#include "dbModule.h"
+
+dbModule::dbModule(int dpHeaderFile)
+{
+	if(dpHeaderFile == -1)
+		createNewDB();
+}
+
+bool dbModule::createNewDB()
+{
+
+}

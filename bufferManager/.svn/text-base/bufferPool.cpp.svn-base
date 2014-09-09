@@ -1,0 +1,28 @@
+/*
+ * bufferPool.cpp
+ *
+ *  Created on: 17-Sep-2011
+ *      Author: amrita
+ */
+
+#include "bufferPool.h"
+void* buffer;
+bufferPool::bufferPool(long memSize)
+{
+	frameCount=memSize/FRAME_SIZE;
+	bufferSize=frameCount*FRAME_SIZE*KB;
+	#ifdef DEBUG
+	cout<<"Frame count is "<<frameCount;
+	#endif
+	bufferManager BM;
+	buffer =(void*) malloc(bufferSize);
+	Frame* currentFrame=(Frame*)buffer;
+}
+/*bufferPool::bufferPool(int noOfDatabases)
+{
+//To be done
+}*/
+bufferPool::~bufferPool()
+{
+
+}

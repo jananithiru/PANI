@@ -1,0 +1,97 @@
+/*
+ * globalDefinitions.h
+ *
+ *  Created on: 15-Sep-2011
+ *      Author: prat
+ *      Modified By:Amy
+ */
+
+#ifndef GLOBALDEFINITIONS_H_
+#define GLOBALDEFINITIONS_H_
+
+#include "globalConstants.h"
+#include "globalHeaders.h"
+#define trace(...) _trace(__FILE__, __LINE__, __VA_ARGS__)
+//frame structure
+typedef struct frameStruct
+{
+public:
+	long frameNumber;
+	bool dirty;
+	long pinCount;
+	unsigned long refCount;//0 is lowest priority
+	unsigned char pageData[1];
+}Frame;
+
+//Page structure (should it be a class or struct??)
+typedef struct pageStruct
+{
+
+	int priority;//DP has higher priority than database page
+	long pageNumber;
+	long nextPage;//TBD if needed
+	long CFS; //contiguous free space
+	char pageData[1];
+}Page;
+
+typedef struct database{
+	char dbName[DB_NAME];
+	long dbIndex;
+	FILE *dbFP;
+
+}db;
+
+typedef struct sysTable {
+	char *tableName;
+	int tableId;
+	long tablePage; //pointer to the directory page
+}sysTable;
+
+typedef struct sysCols {
+	int noOfAttributes;
+	char **colName;
+	char *colType[1]; //get it from globalConstants.h
+	int sizeOfAttribute;
+	int precision; //for float data
+	bool isNull;
+	bool isIndexAttribute;
+	bool hasDefaultValue;
+	void *defaultValue;
+	long tablePage; //pointer to the directory page
+}sysCols;
+
+typedef struct sysIndex {
+	char **colName;
+	char *colType[1];
+	int noOfColsOnWhichIndex;
+	int indexId;
+	long rootOfBPlusTree;
+	long tablePage; //pointer to the directory page
+}sysIndex;
+
+//To be decided by JAN
+/*typedef struct sysIndexStructure{
+		//int tableID;
+		//bool isSysIndex;
+		int indexID;
+		long tableDP;
+		int indexedCols[MAX_COLS_NUM];
+		unsigned char keyType[50];
+		int numKeyAttr;
+		long pageOfRoot;
+	}sysIndex;*/
+
+//rid
+typedef struct ridStructure{
+	long pageNumber;
+	int slotNumber;
+}rid;
+
+typedef struct tupleStruct
+{
+	unsigned char *rec;
+	unsigned int recLen;
+	rid recordId;
+}tuple;
+
+#endif /* GLOBALDEFINITIONS_H_ */
